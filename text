@@ -1,0 +1,12 @@
+snoser/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── script.js
+├── php/
+│   ├── send_complaint.php
+│   ├── config.php
+│   └── senders.php
+└── logs/
+    └── .htaccess
