@@ -47,4 +47,5 @@ function sendEmail($to, $from, $password, $subject, $body) {
             writeLog("Email sent to $to from $from");
             return true;
         } else {
-            writeLog("Failed to send email to $to from $
+            writeLog("Failed to send email to $to from $)
+            }
