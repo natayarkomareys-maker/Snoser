@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snoser by oleg k - Telegram Complaint System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="matrix-bg"></div>
+    
+    <div class="container">
+        <!-- ASCII Art Banner -->
+        <div class="ascii-art">
+███████╗███╗   ██╗ ██████╗ ███████╗███████╗██████╗ 
+██╔════╝████╗  ██║██╔═══██╗██╔════╝██╔════╝██╔══██╗
+███████╗██╔██╗ ██║██║   ██║███████╗█████╗  ██████╔╝
+╚════██║██║╚██╗██║██║   ██║╚════██║██╔══╝  ██╔══██╗
+███████║██║ ╚████║╚██████╔╝███████║███████╗██║  ██║
+╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝
+        </div>
+
+        <!-- Главное меню -->
+        <div class="main-menu">
+            <div class="menu-header">
+                <h1>⚡ SNOSER by oleg k ⚡</h1>
+                <div class="subtitle">Advanced Telegram Complaint System</div>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card" onclick="showForm('accounts')" id="menu-accounts">
+                    <span class="number">[1]</span>
+                    <span class="title">СНОС АККАУНТОВ</span>
+                </div>
+                <div class="menu-card" onclick="showForm('channels')" id="menu-channels">
+                    <span class="number">[2]</span>
+                    <span class="title">СНОС КАНАЛОВ</span>
+                </div>
+                <div class="menu-card" onclick="showForm('bots')" id="menu-bots">
+                    <span class="number">[3]</span>
+                    <span class="title">СНОС БОТОВ</span>
+                </div>
+                <div class="menu-card" onclick="showForm('chats')" id="menu-chats">
+                    <span class="number">[4]</span>
+                    <span class="title">СНОС ЧАТОВ</span>
+                </div>
+                <div class="menu-card" onclick="alert('Функция скоро будет доступна')">
+                    <span class="number">[5]</span>
+                    <span class="title">Check Mail</span>
+                    <div class="soon-badge">(soon)</div>
+                </div>
+                <div class="menu-card" onclick="alert('Функция скоро будет доступна')">
+                    <span class="number">[6]</span>
+                    <span class="title">Create Mail</span>
+                    <div class="soon-badge">(soon)</div>
+                </div>
+            </div>
+
+            <!-- Формы для каждого типа -->
+            <div class="forms-container">
+                <!-- Форма для аккаунтов -->
+                <div class="form-section" id="form-accounts">
+                    <div class="form-title">⚡ СНОС АККАУНТОВ ⚡</div>
+                    
+                    <div class="complaint-grid">
+                        <div class="complaint-option" data-value="1">1. ЗА СПАМ, РЕКЛАМУ</div>
+                        <div class="complaint-option" data-value="2">2. ЗА ДОКСИНГ</div>
+                        <div class="complaint-option" data-value="3">3. ЗА ТРОЛЛИНГ</div>
+                        <div class="complaint-option" data-value="4">4. ПРОДАЖА НАРКОТЫ</div>
+                        <div class="complaint-option" data-value="5">5. КУРАТОРСТВО В НАРКОШОПЕ</div>
+                        <div class="complaint-option" data-value="6">6. ПРОДАЖА ЦП</div>
+                        <div class="complaint-option" data-value="7">7. ВЫМОГАНИЕ ИНТИМНЫХ ФОТО</div>
+                        <div class="complaint-option" data-value="8">8. УГНЕТАНИЕ НАЦИИ</div>
+                        <div class="complaint-option" data-value="9">9. УГНЕТАНИЕ РЕЛИГИИ</div>
+                        <div class="complaint-option" data-value="10">10. РАСЧЛЕНЕНКА</div>
+                        <div class="complaint-option" data-value="11">11. ЖИВОДЕРКА</div>
+                        <div class="complaint-option" data-value="12">12. ПОРНУХА</div>
+                        <div class="complaint-option" data-value="13">13. СУТЕНЕРСТВО</div>
+                        <div class="complaint-option" data-value="14">14. ПРИЗЫВ К САМОВЫПИЛУ</div>
+                        <div class="complaint-option" data-value="15">15. ПРИЗЫВ К ТЕРРОРУ</div>
+                        <div class="complaint-option" data-value="16">16. УГРОЗЫ СВАТА</div>
+                        <div class="complaint-option" data-value="17">17. УГРОЗЫ РАСПРАВЫ</div>
+                        <div class="complaint-option" data-value="18">18. СНОС СЕССИЙ</div>
+                        <div class="complaint-option" data-value="19">19. С ВИРТ НОМЕРОМ</div>
+                        <div class="complaint-option" data-value="20">20. С ПРЕМКОЙ</div>
+                        <div class="complaint-option" data-value="21">21. ПРОСТО СНОС</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>USERNAME:</label>
+                        <input type="text" id="acc-username" placeholder="@username">
+                    </div>
+
+                    <div class="form-group">
+                        <label>TG ID:</label>
+                        <input type="text" id="acc-id" placeholder="123456789">
+                    </div>
+
+                    <div class="form-group" id="acc-chat-group">
+                        <label>ССЫЛКА НА ЧАТ:</label>
+                        <input type="text" id="acc-chat" placeholder="https://t.me/...">
+                    </div>
+
+                    <div class="form-group" id="acc-violation-group">
+                        <label>ССЫЛКА НА НАРУШЕНИЕ:</label>
+                        <input type="text" id="acc-violation" placeholder="https://t.me/...">
+                    </div>
+
+                    <button class="btn" onclick="startAttack('accounts')">▶ ЗАПУСТИТЬ АТАКУ</button>
+                    <button class="btn btn-pink" onclick="resetForm('accounts')">✕ СБРОС</button>
+                </div>
+
+                <!-- Форма для каналов -->
+                <div class="form-section" id="form-channels">
+                    <div class="form-title">⚡ СНОС КАНАЛОВ ⚡</div>
+                    
+                    <div class="complaint-grid">
+                        <div class="complaint-option" data-value="1">1. С ЛИЧНЫМИ ДАННЫМИ</div>
+                        <div class="complaint-option" data-value="2">2. С ЖИВОДЕРСТВОМ</div>
+                        <div class="complaint-option" data-value="3">3. С ДЕТСКИМ ПОРНО</div>
+                        <div class="complaint-option" data-value="4">4. ДЛЯ КАНАЛОВ ТИПА ПРАЙСОВ</div>
+                        <div class="complaint-option" data-value="5">5. С РАСЧЛЕНЕНКОЙ</div>
+                        <div class="complaint-option" data-value="6">6. РУЛЕТКИ (КАЗИНО)</div>
+                        <div class="complaint-option" data-value="7">7. НАРКО-ШОП</div>
+                        <div class="complaint-option" data-value="8">8. ПРИЗЫВ К ТЕРРОРУ</div>
+                        <div class="complaint-option" data-value="9">9. ПРИЗЫВ К САМОВЫПИЛУ</div>
+                        <div class="complaint-option" data-value="10">10. РАЗЖИГАНИЕ НЕНАВИСТИ</div>
+                        <div class="complaint-option" data-value="11">11. ПРОПАГАНДА НАСИЛИЯ</div>
+                        <div class="complaint-option" data-value="12">12. ПРОДАЖА ДЕТСКИХ ИНТИМОК</div>
+                        <div class="complaint-option" data-value="13">13. УГНЕТЕНИЕ НАЦИИ</div>
+                        <div class="complaint-option" data-value="14">14. УГНЕТЕНИЕ РЕЛИГИИ</div>
+                        <div class="complaint-option" data-value="15">15. С ПОРНУХОЙ</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ССЫЛКА НА КАНАЛ:</label>
+                        <input type="text" id="ch-link" placeholder="https://t.me/...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>ССЫЛКА НА НАРУШЕНИЕ:</label>
+                        <input type="text" id="ch-violation" placeholder="https://t.me/...">
+                    </div>
+
+                    <button class="btn" onclick="startAttack('channels')">▶ ЗАПУСТИТЬ АТАКУ</button>
+                    <button class="btn btn-pink" onclick="resetForm('channels')">✕ СБРОС</button>
+                </div>
+
+                <!-- Форма для ботов -->
+                <div class="form-section" id="form-bots">
+                    <div class="form-title">⚡ СНОС БОТОВ ⚡</div>
+                    
+                    <div class="complaint-grid">
+                        <div class="complaint-option" data-value="1">1. ГЛАЗ БОГА</div>
+                        <div class="complaint-option" data-value="2">2. ТИПА СИНЕГО КИТА</div>
+                        <div class="complaint-option" data-value="3">3. ПРОДАЖА ЦП</div>
+                        <div class="complaint-option" data-value="4">4. МОШЕННИЧЕСКИЕ СХЕМЫ</div>
+                        <div class="complaint-option" data-value="5">5. СПАМ, РЕКЛАМА</div>
+                        <div class="complaint-option" data-value="6">6. ШАНТАЖ</div>
+                        <div class="complaint-option" data-value="7">7. ИЗВРАЩЕНИЯ</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>USERNAME БОТА:</label>
+                        <input type="text" id="bot-username" placeholder="@botusername">
+                    </div>
+
+                    <button class="btn" onclick="startAttack('bots')">▶ ЗАПУСТИТЬ АТАКУ</button>
+                    <button class="btn btn-pink" onclick="resetForm('bots')">✕ СБРОС</button>
+                </div>
+
+                <!-- Форма для чатов -->
+                <div class="form-section" id="form-chats">
+                    <div class="form-title">⚡ СНОС ЧАТОВ ⚡</div>
+                    
+                    <div class="complaint-grid">
+                        <div class="complaint-option" data-value="1">1. ПРОСТО СНОС</div>
+                        <div class="complaint-option" data-value="2">2. СПАМ/РЕКЛАМА</div>
+                        <div class="complaint-option" data-value="3">3. ЗА АВУ ИЛИ НАЗВАНИЕ</div>
+                        <div class="complaint-option" data-value="4">4. ПРОПАГАНДА НАСИЛИЯ</div>
+                        <div class="complaint-option" data-value="5">5. НАКРУТКА</div>
+                        <div class="complaint-option" data-value="6">6. ОСКИ В ЧАТЕ</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>ССЫЛКА НА ЧАТ:</label>
+                        <input type="text" id="chat-link" placeholder="https://t.me/...">
+                    </div>
+
+                    <div class="form-group">
+                        <label>TG ID ЧАТА:</label>
+                        <input type="text" id="chat-id" placeholder="123456789">
+                    </div>
+
+                    <div class="form-group" id="chat-violation-group">
+                        <label>ССЫЛКА НА НАРУШЕНИЕ:</label>
+                        <input type="text" id="chat-violation" placeholder="https://t.me/...">
+                    </div>
+
+                    <button class="btn" onclick="startAttack('chats')">▶ ЗАПУСТИТЬ АТАКУ</button>
+                    <button class="btn btn-pink" onclick="resetForm('chats')">✕ СБРОС</button>
+                </div>
+            </div>
+
+            <!-- Статус атаки -->
+            <div class="attack-status" id="attack-status">
+                <div class="status-header">
+                    <span class="status-title">⚠ АТАКА НАЧАЛАСЬ ⚠</span>
+                    <span class="status-title" style="color: #00ffaa;">⚡ АКТИВНО ⚡</span>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="sent-count">0</div>
+                        <div class="stat-label">ОТПРАВЛЕНО</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="success-rate">0%</div>
+                        <div class="stat-label">УСПЕШНО</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="emails-left">0</div>
+                        <div class="stat-label">ОСТАЛОСЬ</div>
+                    </div>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+                </div>
+
+                <div class="log-container" id="log-container">
+                    <div class="log-entry">[SYSTEM] Инициализация атаки...</div>
+                </div>
+            </div>
+
+            <!-- Промо секция -->
+            <div class="promo-section">
+                <div class="promo-text">✨ ПЛАТНЫЙ СОФТ, 300% ЭФФЕКТИВНЕЕ ✨</div>
+                <a href="https://t.me/revengezerkalo" class="telegram-link" target="_blank">📱 t.me/revengezerkalo</a>
+                <div class="creator-info">
+                    Creator: Revenge | Special for GitHub
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
